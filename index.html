@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="android-chrome-512x512.png" type="image/x-icon">
+  <title>Jovens Convictos Amazonas</title>
+  
+  <!-- Importando a fonte Montserrat -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome para ícones -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <style>
+    /* Paleta de Cores: Azul/Preto/Branco (Eletrizante e Alto Contraste) */
+    :root {
+      --color-primary: #00BFFF; /* Deep Sky Blue - Cor de Destaque/Brilho */
+      --color-secondary: #007ACC; /* Stronger Blue - Para hover/detalhes */
+      --color-text-light: #ffffff;
+      --color-text-dark: #333333;
+      --color-background-dark: rgba(0, 0, 0, 0.9); /* Fundo escuro sólido para seções */
+      --color-border-glow: #00BFFF; /* Brilho Azul */
+      --color-button-shadow: rgba(0, 191, 255, 0.6);
+      --color-section-bg: rgba(0, 0, 0, 0.7); /* Fundo de seção com leve transparência */
+      --content-max-width: 500px; /* Largura máxima para o conteúdo interno (texto, botões) */
+    }
+
+    /* Estilo Global */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
+    body {
+      /* Fundo escuro para alto contraste, mantendo a imagem original */
+      background-image: url('fundo site 2.png'); 
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 0 80px 0;
+      color: var(--color-text-light);
+      position: relative;
+    }
+    
+    /* Overlay escuro para o fundo */
+    body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4); /* Overlay escuro */
+        z-index: -1;
+    }
+    
+    /* O container agora ocupa 100% da largura, sem max-width */
+    .container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    /* Estilo das Seções - Full-Width */
+    .section {
+      background: var(--color-section-bg);
+      padding: 30px 0; /* Remove padding lateral aqui */
+      text-align: center;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      border-radius: 0;
+    }
+
+    /* Novo: Wrapper para centralizar o conteúdo interno */
+    .content-wrapper {
+        max-width: var(--content-max-width);
+        width: 90%; /* Garante que não cole nas bordas em telas pequenas */
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    /* Cabeçalho Principal */
+    .header-section {
+        padding-top: 50px;
+        padding-bottom: 30px;
+        background: var(--color-background-dark);
+        margin-bottom: 0;
+    }
+
+    /* Logo/Imagem de Perfil */
+    .profile-image {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 15px;
+      border: 5px solid var(--color-primary);
+      box-shadow: 0 0 15px var(--color-border-glow), 0 0 30px var(--color-border-glow);
+      transition: transform 0.3s ease;
+    }
+    .profile-image:hover {
+        transform: scale(1.05);
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 5px;
+      font-weight: 900;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.9);
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+      font-weight: 700;
+      color: var(--color-primary);
+    }
+
+    /* Estilo dos Botões de Link */
+    .link-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 18px;
+      margin-top: 15px;
+      background: var(--color-primary);
+      color: var(--color-text-dark);
+      font-weight: 800;
+      text-decoration: none;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      font-size: 1.1rem;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 5px 15px var(--color-button-shadow);
+    }
+
+    .link-button i {
+        margin-right: 10px;
+        font-size: 1.3rem;
+    }
+
+    .link-button:hover {
+      background: var(--color-secondary);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px var(--color-button-shadow), 0 0 10px var(--color-secondary);
+    }
+
+    /* Seção de Mídia (Vídeo e Galeria) */
+    .media-section {
+        background: var(--color-section-bg);
+    }
+
+    .section h3 {
+        font-size: 1.6rem;
+        margin-bottom: 15px;
+        color: var(--color-primary);
+        text-align: center;
+        font-weight: 900;
+    }
+
+    /* Espaço para Vídeo */
+    .video-placeholder {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background-color: rgba(255, 255, 255, 0.1);
+      border: 3px dashed var(--color-primary);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      margin-bottom: 20px;
+      padding: 20px;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    /* Galeria de Fotos */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .photo-placeholder {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      background-color: rgba(255, 255, 255, 0.1);
+      border: 2px solid var(--color-primary);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+    .photo-placeholder:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 10px var(--color-primary);
+    }
+
+    /* Seção de Informações da Igreja */
+    .info-section {
+      text-align: left;
+      background: var(--color-background-dark);
+    }
+
+    .info-section .content-wrapper {
+        text-align: left; /* Alinha o texto da seção de informações à esquerda */
+    }
+
+    .info-section h3 {
+      text-align: center; /* Mantém o título centralizado */
+    }
+
+    .info-section p {
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    .info-section strong {
+        color: var(--color-primary);
+    }
+
+    /* Ícones de Redes Sociais */
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      margin-top: 20px;
+    }
+
+    .social-icons a {
+      color: var(--color-text-light);
+      font-size: 2.5rem;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      color: var(--color-primary);
+      transform: scale(1.15);
+    }
+
+    /* Rodapé */
+    footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.8rem;
+      text-align: center;
+      padding: 10px 0;
+      z-index: 10;
+    }
+
+    /* Próximo Culto - Card */
+    .next-service-card {
+        background: var(--color-primary);
+        color: var(--color-text-dark);
+        padding: 15px 20px;
+        text-align: center;
+        font-weight: 700;
+        box-shadow: 0 5px 15px rgba(0, 191, 255, 0.5);
+        margin-bottom: 20px;
+        transition: transform 0.3s ease;
+        border-radius: 10px;
+    }
+    .next-service-card:hover {
+        transform: scale(1.02);
+    }
+
+    .next-service-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+        font-weight: 900;
+        color: var(--color-text-dark);
+    }
+
+    /* Estilo do Contador */
+    .countdown-timer {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 10px;
+        font-weight: 800;
+    }
+
+    .countdown-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 5px;
+        border-radius: 5px;
+        background: rgba(0, 0, 0, 0.1);
+        min-width: 60px;
+    }
+
+    .countdown-value {
+        font-size: 2rem;
+        line-height: 1;
+        color: var(--color-text-dark);
+    }
+
+    .countdown-label {
+        font-size: 0.7rem;
+        margin-top: 5px;
+        color: var(--color-text-dark);
+        text-transform: uppercase;
+    }
+
+    /* Responsividade */
+    @media (max-width: 400px) {
+      .section {
+        padding: 20px 0;
+      }
+      .content-wrapper {
+        width: 95%;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      .link-button {
+        padding: 15px;
+        font-size: 1rem;
+      }
+      .social-icons a {
+        font-size: 2rem;
+      }
+      .next-service-card h3 {
+        font-size: 1.2rem;
+      }
+      .countdown-value {
+        font-size: 1.5rem;
+      }
+      .countdown-item {
+        min-width: 50px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <!-- SEÇÃO 1: CABEÇALHO E LINKS SOCIAIS -->
+    <div class="section header-section">
+        <div class="content-wrapper">
+            <!-- Espaço para o Logo/Imagem de Perfil -->
+            <img src="site tpo.png" alt="Logo Jovens Convictos" class="profile-image">
+            
+            <h1>JOVENS CONVICTOS</h1>
+            <h2>DEPARTAMENTO DE JOVENS - IGREJA DO ALTÍSSIMO AM</h2>
+            
+            <p style="margin-bottom: 20px;">Conectando a juventude com propósito e paixão. Venha fazer parte da nossa jornada de fé!</p>
+
+            <!-- Ícones de Redes Sociais -->
+            <div class="social-icons">
+                <a href="https://www.instagram.com/jovensconvictos.am/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/559293046422?text=Ol%C3%A1%20vim%20pelo%20instagram%2C%20quero%20saber%20mais%20sobre%20o%20departamento%20de%20jovens
+" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" target="_blank" style="display: none;" title="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="#" target="_blank" style="display: none;" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- NOVO: SEÇÃO DE PRÓXIMO CULTO COM CONTADOR -->
+    <div class="section" style="background: none; padding: 20px 0;">
+        <div class="content-wrapper">
+            <div class="next-service-card">
+                <h3>REDE DE JOVENS SANTIDADE</h3>
+                
+                <!-- Contador Regressivo -->
+                <div class="countdown-timer" id="countdown-timer">
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="days">00</span>
+                        <span class="countdown-label">Dias</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="hours">00</span>
+                        <span class="countdown-label">Horas</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="minutes">00</span>
+                        <span class="countdown-label">Minutos</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="seconds">00</span>
+                        <span class="countdown-label">Segundos</span>
+                    </div>
+                </div>
+
+                <p style="font-size: 0.9rem; margin-top: 15px; color: var(--color-text-dark);"> 15 de Novembro ás 18h30</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SEÇÃO 2: BOTÕES DE LINKS (Ações Principais) -->
+    <div class="section">
+        <div class="content-wrapper">
+            <h3>LINKS RÁPIDOS</h3>
+            <!-- Botão 1: Link Principal (Ex: Inscrição, Evento Atual) -->
+            <a href="https://sitealtissimoam.github.io/inscricaoegd.github.io/index.html/?fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGn0f4dIB391ZXIsSBbQab1zMfCcPgefsEN2SXAqtr1nMLftw3x1R2JqjrvjME_aem_qaTjdd4kroLOMrjoZol3pQ" class="link-button"><i class="fas fa-calendar-alt"></i> EVENTO ATUAL: EGD 2026</a>
+            
+            <!-- Botão 2: Link Secundário (Ex: Culto Online) -->
+            <a href="#" class="link-button"><i class="fas fa-video"></i> ASSISTA NOSSOS CULTOS AO VIVO</a>
+            
+            <!-- Botão 3: Doação/Oferta (Se aplicável) -->
+            <a href="https://wa.me/559282358893?text=Ol%C3%A1%20gostaria%20de%20contribuir%20com%20a%20obra!
+" class="link-button"><i class="fas fa-hand-holding-heart"></i> FAÇA UMA OFERTA / PIX</a>
+
+            <!-- Botão 4: Localização -->
+            <a href="https://maps.app.goo.gl/KqKehvdF6ZwWCQk99" class="link-button" style="background: var(--color-secondary); color: var(--color-text-light);"><i class="fas fa-map-marker-alt"></i> VER LOCALIZAÇÃO DA IGREJA</a>
+        </div>
+    </div>
+
+    <!-- SEÇÃO 3: VÍDEO DE DESTAQUE -->
+    <div class="section media-section">
+        <div class="content-wrapper">
+            <h3>VÍDEO DE DESTAQUE</h3>
+            <div class="video-placeholder">
+                <video src="videoegd.mp4" controls style="width: 490px; border-radius: 15px;"></video>
+            </div>
+        </div>
+    </div>
+
+    <!-- SEÇÃO 4: GALERIA DE FOTOS -->
+    <div class="section media-section">
+        <div class="content-wrapper">
+            <h3>GALERIA DE MOMENTOS</h3>
+            <div class="gallery-grid">
+                <!-- Espaços para 6 fotos. Substitua o conteúdo pela tag <img> -->
+                <div class="photo-placeholder">FOTO 1</div>
+                <div class="photo-placeholder">FOTO 2</div>
+                <div class="photo-placeholder">FOTO 3</div>
+                <div class="photo-placeholder">FOTO 4</div>
+                <div class="photo-placeholder">FOTO 5</div>
+                <div class="photo-placeholder">FOTO 6</div>
+                <!-- Adicione mais divs .photo-placeholder conforme necessário -->
+            </div>
+        </div>
+    </div>
+
+    <!-- SEÇÃO 5: INFORMAÇÕES DA IGREJA E PROGRAMAÇÃO -->
+    <div class="section info-section">
+        <div class="content-wrapper">
+            <h3>PROGRAMAÇÃO E ENDEREÇO</h3>
+            <p><strong>PROGRAMAÇÃO SEMANAL:</strong></p>
+            <p><i class="fas fa-circle" style="font-size: 0.6rem; color: var(--color-primary); margin-right: 5px;"></i> **Terças-feiras:** Culto de Oração - 19:30h</p>
+            <p><i class="fas fa-circle" style="font-size: 0.6rem; color: var(--color-primary); margin-right: 5px;"></i> **Quintas-feiras:** Células Jovens - 20:00h</p>
+            <p><i class="fas fa-circle" style="font-size: 0.6rem; color: var(--color-primary); margin-right: 5px;"></i> **Domingos:** Culto da Família - 18:00h</p>
+            
+            <hr style="border-color: rgba(0, 191, 255, 0.2); margin: 15px 0;">
+
+            <p><strong>ENDEREÇO:</strong></p>
+            <p><i class="fas fa-map-pin" style="color: var(--color-primary); margin-right: 5px;"></i> Rua Exemplo, 123 - Bairro Central, Manaus/AM</p>
+            <p><i class="fas fa-phone" style="color: var(--color-primary); margin-right: 5px;"></i> Contato: (92) 99999-9999</p>
+        </div>
+    </div>
+
+  </div>
+
+  <footer>
+    © 2025 Jovens Convictos. Design por Manus.
+  </footer>
+
+<script>
+    // =================================================================
+    // INSTRUÇÕES PARA O CONTADOR REGRESSIVO
+    // =================================================================
+    // 1. Defina a data e hora do próximo culto.
+    //    O formato deve ser: "Mês Dia, Ano Hora:Minuto:Segundo"
+    //    Exemplo: "Dec 25, 2025 18:00:00" (25 de Dezembro de 2025 às 18:00:00)
+    //    Use o fuso horário do seu local, o JavaScript ajustará automaticamente.
+    // -----------------------------------------------------------------
+    const targetDate = new Date("Nov 15, 2025 18:30:00").getTime();
+    // =================================================================
+
+    const countdownFunction = setInterval(function() {
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+
+        // Cálculo do tempo
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Formatação para 2 dígitos
+        const formatTime = (time) => String(time).padStart(2, '0');
+
+        // Exibindo o resultado nos elementos HTML
+        document.getElementById("days").innerHTML = formatTime(days);
+        document.getElementById("hours").innerHTML = formatTime(hours);
+        document.getElementById("minutes").innerHTML = formatTime(minutes);
+        document.getElementById("seconds").innerHTML = formatTime(seconds);
+
+        // Se o contador terminar
+        if (distance < 0) {
+            clearInterval(countdownFunction);
+            document.getElementById("countdown-timer").innerHTML = "<span style='font-size: 1.5rem; color: var(--color-text-dark);'>O CULTO COMEÇOU!</span>";
+        }
+    }, 1000);
+</script>
+
+</body>
+</html>
