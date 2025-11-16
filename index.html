@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="android-chrome-512x512.png" type="image/x-icon">
+  <link rel="shortcut icon" href="jovens.ico" type="image/x-icon">
   <title>Jovens Convictos Amazonas</title>
   
   <!-- Importando a fonte Montserrat -->
@@ -15,13 +15,13 @@
   <style>
     /* Paleta de Cores: Azul/Preto/Branco (Eletrizante e Alto Contraste) */
     :root {
-      --color-primary: #00BFFF; /* Deep Sky Blue - Cor de Destaque/Brilho */
-      --color-secondary: #007ACC; /* Stronger Blue - Para hover/detalhes */
+      --color-primary: #ff6600; /* Deep Sky Blue - Cor de Destaque/Brilho */
+      --color-secondary: #ff6600; /* Stronger Blue - Para hover/detalhes */
       --color-text-light: #ffffff;
-      --color-text-dark: #333333;
+      --color-text-dark: #ffffff;
       --color-background-dark: rgba(0, 0, 0, 0.9); /* Fundo escuro sólido para seções */
-      --color-border-glow: #00BFFF; /* Brilho Azul */
-      --color-button-shadow: rgba(0, 191, 255, 0.6);
+      --color-border-glow: #ffa600; /* Brilho Azul */
+      --color-button-shadow: rgba(255, 166, 0, 0.6);
       --color-section-bg: rgba(0, 0, 0, 0.7); /* Fundo de seção com leve transparência */
       --content-max-width: 500px; /* Largura máxima para o conteúdo interno (texto, botões) */
     }
@@ -96,14 +96,14 @@
 
     /* Logo/Imagem de Perfil */
     .profile-image {
-      width: 120px;
-      height: 120px;
+      width: 150px;
+      height: 150px;
       border-radius: 50%;
       object-fit: cover;
       margin-bottom: 15px;
       border: 5px solid var(--color-primary);
       box-shadow: 0 0 15px var(--color-border-glow), 0 0 30px var(--color-border-glow);
-      transition: transform 0.3s ease;
+      transition: transform 0.5s ease;
     }
     .profile-image:hover {
         transform: scale(1.05);
@@ -113,7 +113,7 @@
       font-size: 2.5rem;
       margin-bottom: 5px;
       font-weight: 900;
-      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.9);
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0);
     }
 
     h2 {
@@ -357,7 +357,7 @@
     <div class="section header-section">
         <div class="content-wrapper">
             <!-- Espaço para o Logo/Imagem de Perfil -->
-            <img src="site tpo.png" alt="Logo Jovens Convictos" class="profile-image">
+            <img src="logo.png" alt="Logo Jovens Convictos" class="profile-image">
             
             <h1>JOVENS CONVICTOS</h1>
             <h2>DEPARTAMENTO DE JOVENS - IGREJA DO ALTÍSSIMO AM</h2>
@@ -379,7 +379,7 @@
     <div class="section" style="background: none; padding: 20px 0;">
         <div class="content-wrapper">
             <div class="next-service-card">
-                <h3>REDE DE JOVENS SANTIDADE</h3>
+                <h3>PRÓXIMA REDE DE JOVENS EM</h3>
                 
                 <!-- Contador Regressivo -->
                 <div class="countdown-timer" id="countdown-timer">
@@ -401,7 +401,7 @@
                     </div>
                 </div>
 
-                <p style="font-size: 0.9rem; margin-top: 15px; color: var(--color-text-dark);"> 15 de Novembro ás 18h30</p>
+                <p style="font-size: 0.9rem; margin-top: 15px; color: var(--color-text-dark);"> Aguarde!</p>
             </div>
         </div>
     </div>
@@ -409,16 +409,13 @@
     <!-- SEÇÃO 2: BOTÕES DE LINKS (Ações Principais) -->
     <div class="section">
         <div class="content-wrapper">
-            <h3>LINKS RÁPIDOS</h3>
+            <h3 style="color: #ffffff;">LINKS RÁPIDOS</h3>
             <!-- Botão 1: Link Principal (Ex: Inscrição, Evento Atual) -->
             <a href="https://sitealtissimoam.github.io/inscricaoegd.github.io/index.html/?fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGn0f4dIB391ZXIsSBbQab1zMfCcPgefsEN2SXAqtr1nMLftw3x1R2JqjrvjME_aem_qaTjdd4kroLOMrjoZol3pQ" class="link-button"><i class="fas fa-calendar-alt"></i> EVENTO ATUAL: EGD 2026</a>
             
             <!-- Botão 2: Link Secundário (Ex: Culto Online) -->
             <a href="#" class="link-button"><i class="fas fa-video"></i> ASSISTA NOSSOS CULTOS AO VIVO</a>
             
-            <!-- Botão 3: Doação/Oferta (Se aplicável) -->
-            <a href="https://wa.me/559282358893?text=Ol%C3%A1%20gostaria%20de%20contribuir%20com%20a%20obra!
-" class="link-button"><i class="fas fa-hand-holding-heart"></i> FAÇA UMA OFERTA / PIX</a>
 
             <!-- Botão 4: Localização -->
             <a href="https://maps.app.goo.gl/KqKehvdF6ZwWCQk99" class="link-button" style="background: var(--color-secondary); color: var(--color-text-light);"><i class="fas fa-map-marker-alt"></i> VER LOCALIZAÇÃO DA IGREJA</a>
@@ -428,9 +425,9 @@
     <!-- SEÇÃO 3: VÍDEO DE DESTAQUE -->
     <div class="section media-section">
         <div class="content-wrapper">
-            <h3>VÍDEO DE DESTAQUE</h3>
+            <h3 style="color: #ffffff;">VÍDEO DE DESTAQUE</h3>
             <div class="video-placeholder">
-                <video src="videoegd.mp4" controls style="width: 490px; border-radius: 15px;"></video>
+                <video src="lv_0_20251116035006.mp4" controls loop autoplay style="width: 490px; border-radius: 15px;"></video>
             </div>
         </div>
     </div>
@@ -438,7 +435,7 @@
     <!-- SEÇÃO 4: GALERIA DE FOTOS -->
     <div class="section media-section">
         <div class="content-wrapper">
-            <h3>GALERIA DE MOMENTOS</h3>
+            <h3 style="color: #ffffff;">GALERIA DE MOMENTOS</h3>
             <div class="gallery-grid">
                 <!-- Espaços para 6 fotos. Substitua o conteúdo pela tag <img> -->
                 <div class="photo-placeholder">FOTO 1</div>
@@ -455,17 +452,19 @@
     <!-- SEÇÃO 5: INFORMAÇÕES DA IGREJA E PROGRAMAÇÃO -->
     <div class="section info-section">
         <div class="content-wrapper">
-            <h3>PROGRAMAÇÃO E ENDEREÇO</h3>
-            <p><strong>PROGRAMAÇÃO SEMANAL:</strong></p>
-            <p><i class="fas fa-circle" style="font-size: 0.6rem; color: var(--color-primary); margin-right: 5px;"></i> **Terças-feiras:** Culto de Oração - 19:30h</p>
-            <p><i class="fas fa-circle" style="font-size: 0.6rem; color: var(--color-primary); margin-right: 5px;"></i> **Quintas-feiras:** Células Jovens - 20:00h</p>
-            <p><i class="fas fa-circle" style="font-size: 0.6rem; color: var(--color-primary); margin-right: 5px;"></i> **Domingos:** Culto da Família - 18:00h</p>
+            <h3 style="color: #ffffff;">PROGRAMAÇÃO E ENDEREÇO</h3>
+            <p><strong>PROGRAMAÇÃO JOVENS:</strong></p>
+            <p><i class="fas fa-circle" style="font-size: 0.6rem; color: var(--color-primary); margin-right: 5px;"></i> Quarta-feira: Renovo Time - Após o culto</p>
+            <p><i class="fas fa-circle" style="font-size: 0.6rem; color: var(--color-primary); margin-right: 5px;"></i> Quinta-feira: GA's de Jovens nas casas - Procure um líder de GA</p>
+            <p><i class="fas fa-circle" style="font-size: 0.6rem; color: var(--color-primary); margin-right: 5px;"></i> Pimeiro Sábado: Programação Especial com Jovens</p>
+            <p><i class="fas fa-circle" style="font-size: 0.6rem; color: var(--color-primary); margin-right: 5px;"></i> Terceiro Sábado: Rede de Jovens</p>
+            <p><i class="fas fa-circle" style="font-size: 0.6rem; color: var(--color-primary); margin-right: 5px;"></i> Domingo: Culto da Família</p>
             
             <hr style="border-color: rgba(0, 191, 255, 0.2); margin: 15px 0;">
 
             <p><strong>ENDEREÇO:</strong></p>
-            <p><i class="fas fa-map-pin" style="color: var(--color-primary); margin-right: 5px;"></i> Rua Exemplo, 123 - Bairro Central, Manaus/AM</p>
-            <p><i class="fas fa-phone" style="color: var(--color-primary); margin-right: 5px;"></i> Contato: (92) 99999-9999</p>
+            <p><i class="fas fa-map-pin" style="color: var(--color-primary); margin-right: 5px;"></i> Rua Magalhães Barata, 4 Crespo - Manaus/AM</p>
+            <p style="display: none;"><i class="fas fa-phone" style="color: var(--color-primary); margin-right: 5px;"></i> Contato: (92) 99999-9999</p>
         </div>
     </div>
 
@@ -484,7 +483,7 @@
     //    Exemplo: "Dec 25, 2025 18:00:00" (25 de Dezembro de 2025 às 18:00:00)
     //    Use o fuso horário do seu local, o JavaScript ajustará automaticamente.
     // -----------------------------------------------------------------
-    const targetDate = new Date("Nov 15, 2025 18:30:00").getTime();
+    const targetDate = new Date("Jan 20, 2026 00:00:00").getTime();
     // =================================================================
 
     const countdownFunction = setInterval(function() {
